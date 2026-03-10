@@ -1105,16 +1105,44 @@
 
   // Form submit
   async function submitForm() {
+    const fname = document.getElementById('fname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+
+    // Basic validation
+    if (!fname || !email || !phone) {
+      alert('Please fill in at least your name, phone, and email.');
+      return;
+    }
+
+    const btn = document.querySelector('.btn-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
     const data = {
-      first_name: document.getElementById('fname').value,
-      last_name:  document.getElementById('lname').value,
-      business:   document.getElementById('biz').value,
-      phone:      document.getElementById('phone').value,
-      email:      document.getElementById('email').value,
+      first_name: fname,
+      last_name:  document.getElementById('lname').value.trim(),
+      business:   document.getElementById('biz').value.trim(),
+      phone:      phone,
+      email:      email,
       missed_calls: document.getElementById('missed').value,
     };
-    // Replace with your Make.com webhook URL
+
     const WEBHOOK = 'https://hook.us2.make.com/op6pf4v1s4q9jmfk0hctepyyyu9b79up';
     try {
       await fetch(WEBHOOK, {
-     
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+    } catch(e) {
+      console.log('Webhook error:', e);
+    }
+    // Always show success regardless of CORS response
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }
+</script>
+</body>
+</html>
