@@ -1084,13 +1084,13 @@
     <div class="footer-links">
       <a href="#cta">System Guide</a>
       <a href="#demo">See Demo</a>
-      <a href="mailto:abu@meerakapp.com">Contact</a>
+      <a href="/cdn-cgi/l/email-protection#9efffcebdef3fbfbecfff5ffeeeeb0fdf1f3">Contact</a>
     </div>
     <div class="footer-copy">© 2026 Meerakapp™. All rights reserved.</div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Scroll reveal — add hidden state via JS so content shows if JS/observer fails
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('animate-ready'));
   const observer = new IntersectionObserver((entries) => {
@@ -1114,12 +1114,7 @@
       missed_calls: document.getElementById('missed').value,
     };
     // Replace with your Make.com webhook URL
-    const WEBHOOK = 'https://hook.us1.make.com/your-unique-webhook-id';
+    const WEBHOOK = 'https://hook.us2.make.com/op6pf4v1s4q9jmfk0hctepyyyu9b79up';
     try {
       await fetch(WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-    } catch(e) {}
-    docum
+     
